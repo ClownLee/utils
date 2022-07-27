@@ -13,14 +13,33 @@ export function isNumber(num: string | number): boolean {
  * @returns {string} 千分位数字
  */
 export function thousandth(num: string | number): string {
-  num = `${num}`; // To String
-
   if (!isNumber(num)) {
     throw new Error('输入参数必须是数字或数字型字符串');
   }
 
+  num = `${num}`; // To String
   const numArr: string[] = num.split('.');
   numArr[0] = numArr[0].replace(/(?=\B(\d{3})+$)/g, ',');
   num = numArr.join('.');
+  return num;
+}
+
+/**
+ * 数字补0
+ * @param { string | number } num 原数字
+ * @param { number } len 总位数（总长度）
+ * @returns {string} 返回补0后的字符串
+ */
+export function zeroFilling(num: string | number, len: number): string {
+  if (!isNumber(num)) {
+    throw new Error('输入参数必须是数字或数字型字符串');
+  }
+
+  num = `${num}`;
+  const currLen = num.length;
+  if (currLen < len) {
+    num = `0${num}`;
+    return zeroFilling(num, len);
+  }
   return num;
 }

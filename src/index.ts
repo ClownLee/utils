@@ -1,3 +1,4 @@
-import { isNumber, thousandth } from './libs/number';
+import { debounce, throttle } from './components/funs';
+import { isNumber, thousandth, zeroFilling } from './components/number';
 
-export { isNumber, thousandth };
+export { isNumber, thousandth, zeroFilling, debounce, throttle };
