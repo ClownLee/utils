@@ -1,5 +1,5 @@
 {
-  "name": "utils",
+  "name": "@clownlee/utils",
   "version": "1.0.0",
   "description": "JS函数库 JS工具库",
   "main": "./lib/index.js",
