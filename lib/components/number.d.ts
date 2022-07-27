@@ -11,7 +11,7 @@ export declare function isNumber(num: string | number): boolean;
  */
 export declare function thousandth(num: string | number): string;
 /**
- * 在数字补0
+ * 数字补0
  * @param { string | number } num 原数字
  * @param { number } len 总位数（总长度）
  * @returns {string} 返回补0后的字符串
