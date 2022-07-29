@@ -30,10 +30,14 @@ export function thousandth(num: string | number): string {
  * @param { number } len 总位数（总长度）
  * @returns {string} 返回补0后的字符串
  */
-export function zeroFilling(num: string | number, len: number, check: boolean = true): string {
+export function zeroFilling(
+  num: string | number,
+  len: number,
+  check: boolean = true,
+): string {
   num = `${num}`;
 
-  if(check && !/^([0-9]?|([1-9]\d+))$/.test(num)) {
+  if (check && !/^([0-9]?|([1-9]\d+))$/.test(num)) {
     throw new Error('输入参数必须是大于等于0的整数');
   }
 

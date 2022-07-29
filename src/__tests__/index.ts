@@ -23,101 +23,107 @@ test('zeroFilling', () => {
 });
 
 test('arrayToTree', () => {
-  return expect(arrayToTree([
+  return expect(
+    arrayToTree([
+      {
+        id: 1,
+        content: 'c1',
+      },
+      {
+        id: 2,
+        content: 'c1',
+        pid: 3,
+      },
+      {
+        id: 3,
+        content: 'c1',
+        pid: 1,
+      },
+      {
+        id: 4,
+        content: 'c1',
+        pid: 2,
+      },
+    ]),
+  ).toMatchObject([
     {
-      id: 1,
-      content: 'c1',
-    },
-    {
-      id: 2,
-      content: 'c1',
-      pid: 3
-    },
-    {
-      id: 3,
-      content: 'c1',
-      pid: 1
-    },
-    {
-      id: 4,
-      content: 'c1',
-      pid: 2
-    },
-  ])).toMatchObject([
-    {
-        "children": [
+      children: [
+        {
+          children: [
             {
-                "children": [
-                    {
-                        "children": [
-                            {
-                                "content": "c1",
-                                "id": 4
-                            }
-                        ],
-                        "content": "c1",
-                        "id": 2
-                    }
-                ],
-                "content": "c1",
-                "id": 3
-            }
-        ],
-        "content": "c1",
-        "id": 1
-    }
+              children: [
+                {
+                  content: 'c1',
+                  id: 4,
+                },
+              ],
+              content: 'c1',
+              id: 2,
+            },
+          ],
+          content: 'c1',
+          id: 3,
+        },
+      ],
+      content: 'c1',
+      id: 1,
+    },
   ]);
 });
 
 test('treeToArray', () => {
-  return expect(treeToArray([
-    {
-      "children": [
+  return expect(
+    treeToArray(
+      [
         {
-          "children": [
+          children: [
             {
-              "children": [
+              children: [
                 {
-                  "content": "c1",
-                  "id": 4
-                }
+                  children: [
+                    {
+                      content: 'c1',
+                      id: 4,
+                    },
+                  ],
+                  content: 'c1',
+                  id: 2,
+                },
               ],
-              "content": "c1",
-              "id": 2
-            }
+              content: 'c1',
+              id: 3,
+            },
           ],
-          "content": "c1",
-          "id": 3
-        }
+          content: 'c1',
+          id: 1,
+        },
       ],
-      "content": "c1",
-      "id": 1
-    }
-  ], {
-    idField: 'id',
-    pidField: 'pid',
-    childrenField: 'children'
-  })).toMatchObject([
+      {
+        idField: 'id',
+        pidField: 'pid',
+        childrenField: 'children',
+      },
+    ),
+  ).toMatchObject([
     {
-      "content": "c1",
-      "id": 1,
-      "pid": undefined
+      content: 'c1',
+      id: 1,
+      pid: undefined,
     },
     {
-      "content": "c1",
-      "id": 3,
-      "pid": 1
+      content: 'c1',
+      id: 3,
+      pid: 1,
     },
     {
-      "content": "c1",
-      "id": 2,
-      "pid": 3
+      content: 'c1',
+      id: 2,
+      pid: 3,
     },
     {
-      "content": "c1",
-      "id": 4,
-      "pid": 2
-    }
+      content: 'c1',
+      id: 4,
+      pid: 2,
+    },
   ]);
 });
-

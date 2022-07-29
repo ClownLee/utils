@@ -16,4 +16,4 @@ export declare function thousandth(num: string | number): string;
  * @param { number } len 总位数（总长度）
  * @returns {string} 返回补0后的字符串
  */
-export declare function zeroFilling(num: string | number, len: number): string;
+export declare function zeroFilling(num: string | number, len: number, check?: boolean): string;
