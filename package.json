@@ -1,6 +1,6 @@
 {
   "name": "@clownlee/utils",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "JS函数库 JS工具库",
   "main": "./lib/index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "format": "prettier --write \"src/**/*.ts\" \"lib/**/*.js\"",
     "lint": "tslint -c tslint.json src/**/*.ts"
   },
-  "keywords": [],
+  "keywords": ["数组转树状对象", "树状对象转数组", "html转义", "数组对象深拷贝", "千分位", "补零"],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ClownLee/utils.git"

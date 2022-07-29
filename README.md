@@ -36,7 +36,7 @@ console.log(zeroFilling(33, 6)); // 000033
 
 ## 2. HTML 标签转义，反转义类
 
-### encode html元素转义
+### 2.1. encode html元素转义
 
 ``` javascript
 import { encode } from '@clownlee/utils';
@@ -47,7 +47,7 @@ const text = encode(html)
 // text = &lt;div&gt;&lt;h1&gt;哈哈哈哈&lt;/h1&gt;&lt;h2&gt;嘿嘿嘿嘿&lt;/h2&gt;&lt;/div&gt;
 ```
 
-### decode html元素反转义
+### 2.2. decode html元素反转义
 
 ``` javascript
 import { decode } from '@clownlee/utils';
@@ -60,7 +60,7 @@ const html = decode(text)
 
 ## 3. 数组类
 
-### arrayToTree 数组转tree
+### 3.1. arrayToTree 数组转tree
 
 ``` javascript
 import { arrayToTree } from '@clownlee/utils';
@@ -86,7 +86,7 @@ const tree = arrayToTree(arr, {
 })
 ```
 
-### treeToArray tree转数组
+### 3.2. treeToArray tree转数组
 
 ``` javascript
 
@@ -117,7 +117,7 @@ const arr = treeToArray(tree, {
 
 ```
 
-### findParentTree  在tree数组中找到指定值的父级元素
+### 3.3. findParentTree  在tree数组中找到指定值的父级元素
 ``` javascript
 
 import { treeToArray } from '@clownlee/utils';
@@ -165,7 +165,7 @@ console.log(demo)
 ]
 */
 ```
-### findParentArr 在pid数组中找到指定值的父级元素
+### 3.4. findParentArr 在pid数组中找到指定值的父级元素
 
 ``` javascript
 
@@ -198,7 +198,7 @@ console.log(demo)
 */
 ```
 
-###  deepClone 数组对象深拷贝
+### 3.5. deepClone 数组对象深拷贝
 
 ``` javascript
 import { deepClone } from '@clownlee/utils';
@@ -207,5 +207,18 @@ const newArr = deepClone(arr)
 
 ## 4. 防抖节流类
 
-### debounce
-### throttle
+### 4.1. debounce 防抖函数
+
+``` javascript
+debounce(function(name, sex) {
+    console.log(name, sex)
+}, 3000)('张三', '男')
+```
+
+### 4.2. throttle 节流函数
+
+``` javascript
+throttle(function(name, sex) {
+    console.log(name, sex)
+}, 3000)('张三', '男')
+```
