@@ -4,7 +4,7 @@
  * @returns {boolean} 布尔值
  */
 export function isNumber(num: string | number): boolean {
-  return new RegExp(/^-?[0-9]+(.[0-9]+)?$/).test(`${num}`);
+  return new RegExp(/^-?([0-9]?|[1-9]\d+)(\.\d+)?$/).test(`${num}`);
 }
 
 /**
@@ -30,16 +30,17 @@ export function thousandth(num: string | number): string {
  * @param { number } len 总位数（总长度）
  * @returns {string} 返回补0后的字符串
  */
-export function zeroFilling(num: string | number, len: number): string {
-  if (!isNumber(num)) {
-    throw new Error('输入参数必须是数字或数字型字符串');
+export function zeroFilling(num: string | number, len: number, check: boolean = true): string {
+  num = `${num}`;
+
+  if(check && !/^([0-9]?|([1-9]\d+))$/.test(num)) {
+    throw new Error('输入参数必须是大于等于0的整数');
   }
 
-  num = `${num}`;
   const currLen = num.length;
   if (currLen < len) {
     num = `0${num}`;
-    return zeroFilling(num, len);
+    return zeroFilling(num, len, false);
   }
   return num;
 }
