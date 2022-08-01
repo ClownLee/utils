@@ -7,6 +7,8 @@ import {
   findParentTree,
   findParentArr,
   deepClone,
+  arrayMax,
+  arrayMin,
 } from './components/arrs';
 
 export {
@@ -22,4 +24,6 @@ export {
   findParentTree,
   findParentArr,
   deepClone,
+  arrayMax,
+  arrayMin,
 };

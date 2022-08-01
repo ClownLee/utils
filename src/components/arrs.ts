@@ -1,3 +1,4 @@
+import { isNumber } from './number';
 declare type OBJ = {
   [key: string | number]: any;
 };
@@ -169,4 +170,35 @@ export const findParentArr = (
   }
 
   return items;
+};
+
+/**
+ * 数字数组，返回最大元素值
+ * @param {(number | string)[]} arr
+ * @returns { number }
+ */
+export const arrayMax = (arr: (number | string)[]): number => {
+  const newArr: number[] = arr.map((i) => {
+    if (!isNumber(i)) {
+      throw new Error('数组元素必须是数字型或数字型字符串');
+    }
+    return Number(i);
+  });
+  return Math.max.apply(null, newArr);
+};
+
+/**
+ * 数字数组，返回最小元素值
+ * @param {(number | string)[]} arr
+ * @returns { number }
+ */
+export const arrayMin = (arr: (number | string)[]): number => {
+  const newArr: number[] = arr.map((i) => {
+    if (!isNumber(i)) {
+      throw new Error('数组元素必须是数字型或数字型字符串');
+    }
+    return Number(i);
+  });
+
+  return Math.min.apply(null, newArr);
 };

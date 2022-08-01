@@ -4,6 +4,8 @@ import {
   zeroFilling,
   arrayToTree,
   treeToArray,
+  arrayMax,
+  arrayMin,
   /*
   findParentTree,
   findParentArr,
@@ -126,4 +128,12 @@ test('treeToArray', () => {
       pid: 2,
     },
   ]);
+});
+
+test('arrayMax', () => {
+  expect(arrayMax(['5', '4', '3', '2', '1', '0'])).toBe(5);
+});
+
+test('arrayMin', () => {
+  expect(arrayMin([5, 4, '3', '1', 1, 0])).toBe(0);
 });

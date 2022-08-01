@@ -37,4 +37,16 @@ export declare const findParentTree: (tree: any[], sonId: number | string, optio
  * @returns
  */
 export declare const findParentArr: (arr: any[], sonId: number | string, options?: OBJ) => any[];
+/**
+ * 数字数组，返回最大元素值
+ * @param {(number | string)[]} arr
+ * @returns { number }
+ */
+export declare const arrayMax: (arr: (number | string)[]) => number;
+/**
+ * 数字数组，返回最小元素值
+ * @param {(number | string)[]} arr
+ * @returns { number }
+ */
+export declare const arrayMin: (arr: (number | string)[]) => number;
 export {};
