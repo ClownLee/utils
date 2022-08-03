@@ -1,4 +1,4 @@
-type FUNC = (...args: any) => void;
+import { FUNC } from './types';
 
 /**
  * 防抖函数

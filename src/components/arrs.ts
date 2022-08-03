@@ -1,7 +1,6 @@
 import { isNumber } from './number';
-declare type OBJ = {
-  [key: string | number]: any;
-};
+import { OBJ } from './types';
+
 /**
  * 数组转Tree
  * @param {*} items 数组

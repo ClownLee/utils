@@ -1,6 +1,6 @@
 {
   "name": "@clownlee/utils",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "JS函数库 JS工具库",
   "main": "./lib/index.js",
   "scripts": {

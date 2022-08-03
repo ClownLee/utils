@@ -1,3 +1,5 @@
+import { FUNC, OBJ } from './types';
+
 /**
  * html 标签转义
  * @param {*} html
@@ -30,4 +32,52 @@ export const decode = (text: string): string => {
   const output: string = temp.innerText || temp.textContent;
   temp = null;
   return output;
+};
+
+/**
+ * 懒加载（无限上拉加载）
+ * @param {FUNC} fn 回调方法
+ * @param {Element} signId
+ * @param {Element} containId
+ * @returns {OBJ}
+ */
+export const lazyLoading = (
+  fn: FUNC,
+  signId: Element,
+  containId: Element,
+): OBJ => {
+  const io = new IntersectionObserver(
+    (e) => {
+      if (e[0].isIntersecting) fn();
+    },
+    {
+      root: containId,
+      threshold: [0.9],
+    },
+  );
+
+  const attrs: OBJ = {
+    /**
+     * 开始观察
+     */
+    observe: (): void => {
+      io.observe(signId);
+    },
+    /**
+     * 停止观察
+     */
+    unobserve: (): void => {
+      io.unobserve(signId);
+    },
+    /**
+     * 关闭观察器
+     */
+    disconnect: (): void => {
+      io.disconnect();
+    },
+  };
+
+  // attrs.observe();
+
+  return attrs;
 };

@@ -1,4 +1,4 @@
-declare type FUNC = (...args: any) => void;
+import { FUNC } from './types';
 /**
  * 防抖函数
  * @param {FUNC} fn 回调函数
@@ -14,4 +14,3 @@ export declare function debounce(fn: FUNC, wait: number, immediate?: boolean): F
  * @returns {FUNC}
  */
 export declare function throttle(fn: FUNC, wait: number): FUNC;
-export {};

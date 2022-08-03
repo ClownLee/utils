@@ -1,6 +1,4 @@
-declare type OBJ = {
-    [key: string | number]: any;
-};
+import { OBJ } from './types';
 /**
  * 数组转Tree
  * @param {*} items 数组
@@ -49,4 +47,3 @@ export declare const arrayMax: (arr: (number | string)[]) => number;
  * @returns { number }
  */
 export declare const arrayMin: (arr: (number | string)[]) => number;
-export {};

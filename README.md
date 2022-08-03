@@ -58,6 +58,33 @@ const html = decode(text)
 // html = <div><h1>哈哈哈哈</h1><h2>嘿嘿嘿嘿</h2></div>
 ```
 
+### 2.3. lazyLoading 无限上拉加载函数（懒加载）
+
+``` javascript
+import { lazyLoading } from '@clownlee/utils';
+
+// 要监听的El元素
+const signEl = document.querySelector('#sign');
+
+// 盒子容器El元素
+const containEl = document.querySelector('#contain');
+
+const io = lazyLoading(() => {
+  // http 请求分页数据
+  
+}, signEl, containEl);
+
+// 停止上拉监听
+io.unobserve();
+
+// 开始上拉监听
+io.observe();
+
+// 关闭上拉监听
+io.disconnect();
+
+```
+
 ## 3. 数组类
 
 ### 3.1. arrayToTree 数组转tree
