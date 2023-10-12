@@ -11,6 +11,8 @@ import {
   arrayMin,
 } from './components/arrs';
 
+import SM4 from './components/sm4/index';
+
 export {
   isNumber,
   thousandth,
@@ -27,4 +29,5 @@ export {
   deepClone,
   arrayMax,
   arrayMin,
+  SM4,
 };

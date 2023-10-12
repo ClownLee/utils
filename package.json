@@ -1,6 +1,6 @@
 {
   "name": "@clownlee/utils",
-  "version": "1.0.9",
+  "version": "1.1.0",
   "description": "JS函数库 JS工具库",
   "main": "./lib/index.js",
   "scripts": {
@@ -10,7 +10,20 @@
     "format": "prettier --write \"src/**/*.ts\" \"lib/**/*.js\"",
     "lint": "tslint -c tslint.json src/**/*.ts"
   },
-  "keywords": ["数组转树状对象", "树状对象转数组", "html转义", "数组对象深拷贝", "千分位", "补零", "数组最大值/最小值"],
+  "keywords": [
+    "数组转树状对象",
+    "树状对象转数组",
+    "html转义",
+    "数组对象深拷贝",
+    "千分位",
+    "补零",
+    "数组最大值/最小值",
+    "国密 SM4 加解密",
+    "国密",
+    "SM4",
+    "加密",
+    "解密"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ClownLee/utils.git"
@@ -24,6 +37,7 @@
   },
   "homepage": "https://github.com/ClownLee/utils#readme",
   "dependencies": {
+    "base64-js": "^1.5.1",
     "ts-node": "^10.9.1",
     "typescript": "^4.7.4"
   },

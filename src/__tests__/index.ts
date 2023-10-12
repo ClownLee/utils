@@ -6,6 +6,7 @@ import {
   treeToArray,
   arrayMax,
   arrayMin,
+  SM4,
   /*
   findParentTree,
   findParentArr,
@@ -137,3 +138,20 @@ test('arrayMax', () => {
 test('arrayMin', () => {
   expect(arrayMin([5, 4, '3', '1', 1, 0])).toBe(0);
 });
+
+let sm4Config = {
+  // encrypt/decypt main key; cannot be omitted
+  key: 'JeF8U9wHFOMfs2Y8',
+ 
+  // optional; can be 'cbc' or 'ecb'
+  mode: 'cbc', // default
+ 
+  // optional; when use cbc mode, it's necessary
+  iv: 'UISwD9fW6cFh9SNS', // default is null
+ 
+  // optional: this is the cipher data's type; Can be 'base64' or 'text'
+  cipherType: 'base64' // default is base64
+}
+
+test('SM4.encrypt', () => expect((new SM4(sm4Config as any)).encrypt('√×❤一二三')).toBe('xCCqIps8lqPHEMbPag6mrOH4jViGtvdVdsGkKzJ5Chk='));
+test('SM4.decrypt', () => expect((new SM4(sm4Config as any)).decrypt('xCCqIps8lqPHEMbPag6mrOH4jViGtvdVdsGkKzJ5Chk=')).toBe('√×❤一二三'));

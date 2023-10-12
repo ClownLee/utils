@@ -249,3 +249,34 @@ throttle(function(name, sex) {
     console.log(name, sex)
 }, 3000)('张三', '男')
 ```
+## 5. 国密 SM4加解密
+
+``` javascript
+import { SM4 } from '@clownlee/utils';
+let sm4Config = {
+  // encrypt/decypt main key; cannot be omitted
+  key: 'JeF8U9wHFOMfs2Y8',
+ 
+  // optional; can be 'cbc' or 'ecb'
+  mode: 'cbc', // default
+ 
+  // optional; when use cbc mode, it's necessary
+  iv: 'UISwD9fW6cFh9SNS', // default is null
+ 
+  // optional: this is the cipher data's type; Can be 'base64' or 'text'
+  cipherType: 'base64' // default is base64
+};
+ 
+let sm4 = new SM4(sm4Config);
+
+// Encrypt
+let plaintext = '中国国密加解密算法'
+let ciphertext = sm4.encrypt(plaintext)
+// ciphertext's result is 'j/+HgSpv8RZQI2YtSq0L1RnemiSokMm1VvLHSTt245U='
+
+// Decrypt
+let ciphertext = 'j/+HgSpv8RZQI2YtSq0L1RnemiSokMm1VvLHSTt245U='
+let plaintext = sm4.decrypt(ciphertext)
+// plaintext's result is '中国国密加解密算法'
+
+```
